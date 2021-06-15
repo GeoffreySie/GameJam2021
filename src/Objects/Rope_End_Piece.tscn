@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Rope_End_Piece.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 79.0
+height = 162.0
+
+[node name="Rope End Piece" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="C" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="C"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="J" type="PinJoint2D" parent="C"]
+scale = Vector2( -26.27, -24.5658 )
+bias = 0.2
+disable_collision = false
+softness = 0.01
+
+[node name="icon" type="Sprite" parent="."]
+texture = ExtResource( 1 )
